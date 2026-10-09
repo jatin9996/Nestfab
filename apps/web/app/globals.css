@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background:
+    radial-gradient(980px 420px at -12% -16%, rgba(212, 83, 43, 0.1), transparent 56%),
+    radial-gradient(760px 380px at 112% -10%, rgba(35, 66, 55, 0.12), transparent 52%),
+    #f4f1ea;
+  min-height: 100vh;
+}
+
+.font-serif {
+  letter-spacing: -0.02em;
+}
+
+::selection {
+  background: #f0c7b8;
+  color: #17211c;
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.22em] text-copper;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-cream hover:bg-sage;
+  }
+
+  .btn-copper {
+    @apply btn bg-copper text-white hover:bg-copper-deep;
+  }
+
+  .btn-ghost {
+    @apply btn border border-ink/15 bg-cream/70 text-ink hover:border-ink;
+  }
+
+  .btn-quiet {
+    @apply btn px-3 py-1.5 text-ink-soft hover:text-ink;
+  }
+
+  .field {
+    @apply w-full rounded-2xl border border-sand bg-cream px-3.5 py-2.5 text-sm text-ink outline-none transition placeholder:text-ink/35 focus:border-copper focus:ring-2 focus:ring-copper/20;
+  }
+
+  .label {
+    @apply mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.16em] text-ink/60;
+  }
+
+  .card {
+    @apply rounded-[28px] border border-sand bg-cream;
+  }
+
+  .link-underline {
+    @apply underline decoration-copper/50 decoration-2 underline-offset-4 hover:decoration-copper;
+  }
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+}

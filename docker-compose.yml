@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: nestfab-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: nestfab
+      POSTGRES_PASSWORD: nestfab
+      POSTGRES_DB: nestfab
+    ports:
+      - "5432:5432"
+    volumes:
+      - nestfab_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nestfab -d nestfab"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  nestfab_pg:
